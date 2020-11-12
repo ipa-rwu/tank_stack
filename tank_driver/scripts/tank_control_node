@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from src.tank_control.tank_control import TankControl
+from tank_control.tank_control import TankControl
 
 def main():
     driver = TankControl()

@@ -18,7 +18,7 @@
 
 
   <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>python-rpi.gpio</exec_depend>
+  <exec_depend>python-rpi.gpio-pip</exec_depend>
   <exec_depend>joy</exec_depend>
   <exec_depend>teleop_twist_joy</exec_depend>
   <depend>rospy</depend>
