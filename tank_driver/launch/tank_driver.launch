@@ -1,0 +1,4 @@
+<launch>
+	<node name="tank_control" pkg="tank_driver" type="driver_node" />
+	<rosparam file="$(find tank_driver)/config/config.yaml" command="load" />
+</launch>

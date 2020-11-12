@@ -1,0 +1,42 @@
+# Define the pins
+Definition:
+  -   28: left_motor_forward # control Left motor forward
+  -   29: left_motor_backward # control Left motor back
+  -   24: right_motor_forward # control Right motor forward
+  -   25: right_motor_backward # control Right motor back
+  -   27: left_motor_pwm # control the speed of the left motor
+  -   23: right_motor_pwm # control the speed of the right motor
+
+Direction:
+  - 28: out
+  - 29: out
+  - 24: out
+  - 25: out
+  - 27: out
+  - 23: out
+
+# Define default pin states.
+states:
+  - 28: 1
+  - 29: 1
+  - 24: 1
+  - 25: 1
+  - 27: 20
+  - 23: 20
+
+shutdown_states:
+-   28: 0
+-   29: 0
+-   24: 0
+-   25: 0
+-   27: 0
+-   23: 0
+
+timeout: 5
+
+rate: 50
+
+max_speed: 0.5
+max_pwm: 255
+# The distance between two wheel(track)
+wheel_base:
