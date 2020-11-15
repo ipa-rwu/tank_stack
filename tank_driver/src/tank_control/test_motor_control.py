@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# from motor_control import MotorGPIO
+from motor_control import MotorGPIO
 import yaml
 import os
 
