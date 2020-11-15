@@ -52,10 +52,10 @@ class TankControl:
 
 
         self._last_received = rospy.get_time()
-        self._timeout = rospy.get_param('~timeout', 2)
-        self._rate = rospy.get_param('~rate', 50)
-        self._max_speed = rospy.get_param('~max_speed', 0.5)
-        self._wheel_base = rospy.get_param('~wheel_base', 0.091)
+        self._timeout = rospy.get_param('~timeout', "2")
+        self._rate = rospy.get_param('~rate', "50")
+        self._max_speed = rospy.get_param('~max_speed', "0.5")
+        self._wheel_base = rospy.get_param('~wheel_base', "0.091")
         self._cmd_vel_topic = rospy.get_param('~cmd_vel', 'cmd_vel')
 
         # These states will be set to pins right before the node shuts down.
