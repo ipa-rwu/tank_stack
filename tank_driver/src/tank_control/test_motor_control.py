@@ -5,7 +5,7 @@ import yaml
 import os
 
 def main():
-    motor = MotorGPIO()
+    # motor = MotorGPIO()
     os.getcwd()
     os.chdir('../..')
     config_path = os.getcwd() + "/config/config.yaml"
@@ -40,8 +40,8 @@ def main():
             if definition.find("pwm"):
                 pin_right_pwm = pin
 
-    left_motor = motor(pin_left_forward, pin_left_backward, pin_left_pwm)
-    right_motor = motor(pin_right_forward, pin_right_backward, pin_right_pwm)
+    left_motor = MotorGPIO(pin_left_forward, pin_left_backward, pin_left_pwm)
+    right_motor = MotorGPIO(pin_right_forward, pin_right_backward, pin_right_pwm)
     left_speed_percent = 0
     right_speed_percent = 0
 
