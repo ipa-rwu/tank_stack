@@ -45,8 +45,12 @@ def main():
     left_speed_percent = 0
     right_speed_percent = 0
 
-    left_motor.move(left_speed_percent)
-    right_motor.move(right_speed_percent)
+    while True:
+        left_speed_percent = 10
+        right_speed_percent = 10
+        left_motor.move(left_speed_percent)
+        right_motor.move(right_speed_percent)  
+
 
 
 if __name__ == '__main__':

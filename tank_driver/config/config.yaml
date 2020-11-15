@@ -1,6 +1,6 @@
 # Define the pins
 Definition:
-  -   28: left_motor_forward # control Left motor forward HD: 28
+  -   20: left_motor_forward # control Left motor forward HD: 20
   -   21: left_motor_backward # control Left motor back HD :21
   -   19: right_motor_forward # control Right motor forward HD: 19
   -   26: right_motor_backward # control Right motor back HD: 26
@@ -8,7 +8,7 @@ Definition:
   -   13: right_motor_pwm # control the speed of the right motor HD: 13
 
 Direction:
-  - 28: out
+  - 20: out
   - 21: out
   - 19: out
   - 26: out
@@ -17,7 +17,7 @@ Direction:
 
 # Define default pin states.
 states:
-  - 28: 1
+  - 20: 1
   - 21: 1
   - 19: 1
   - 26: 1
@@ -25,7 +25,7 @@ states:
   - 13: 0
 
 shutdown_states:
-  - 28: 0
+  - 20: 0
   - 21: 0
   - 19: 0
   - 26: 0
