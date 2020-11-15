@@ -4,7 +4,7 @@ import rospy
 from geometry_msgs.msg import Twist
 import RPi.GPIO as GPIO
 
-from motor_control import MotorGPIO
+from tank_control.motor_control import MotorGPIO
 
 
 _MAX_PWM = 255
