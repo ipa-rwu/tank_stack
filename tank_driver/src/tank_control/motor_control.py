@@ -44,3 +44,8 @@ class MotorGPIO:
             GPIO.output(self._forward_pin, _HIGH)
             GPIO.output(self._backward_pin, _LOW)
             self._pwm.start(speed)
+    
+    def stop_motor(self):
+        GPIO.output(self._forward_pin, _LOW)
+        GPIO.output(self._backward_pin, _LOW)
+        self._pwm.start(0)

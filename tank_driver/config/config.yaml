@@ -1,36 +1,44 @@
 # Define the pins
-Definition:
-  -   20: left_motor_forward # control Left motor forward HD: 20
-  -   21: left_motor_backward # control Left motor back HD :21
-  -   19: right_motor_forward # control Right motor forward HD: 19
-  -   26: right_motor_backward # control Right motor back HD: 26
-  -   16: left_motor_pwm # control the speed of the left motor HD:16
-  -   13: right_motor_pwm # control the speed of the right motor HD: 13
+pin_definition_out: { 
+  "left_motor_forward": 20,
+  "left_motor_backward": 21, 
+  "right_motor_forward": 19,
+  "right_motor_backward": 26,
+  "left_motor_pwm": 16,
+  "right_motor_pwm": 13
+}
+#   -   20: left_motor_forward # control Left motor forward HD: 20
+#   -   21: left_motor_backward # control Left motor back HD :21
+#   -   19: right_motor_forward # control Right motor forward HD: 19
+#   -   26: right_motor_backward # control Right motor back HD: 26
+#   -   16: left_motor_pwm # control the speed of the left motor HD:16
+#   -   13: right_motor_pwm # control the speed of the right motor HD: 13
 
-Direction:
-  - 20: out
-  - 21: out
-  - 19: out
-  - 26: out
-  - 16: out
-  - 13: out
 
-# Define default pin states.
-states:
-  - 20: 1
-  - 21: 1
-  - 19: 1
-  - 26: 1
-  - 16: 0
-  - 13: 0
+# Direction:
+#   - 20: out
+#   - 21: out
+#   - 19: out
+#   - 26: out
+#   - 16: out
+#   - 13: out
 
-shutdown_states:
-  - 20: 0
-  - 21: 0
-  - 19: 0
-  - 26: 0
-  - 16: 0
-  - 13: 0
+# # Define default pin states.
+# states:
+#   - 20: 1
+#   - 21: 1
+#   - 19: 1
+#   - 26: 1
+#   - 16: 0
+#   - 13: 0
+
+# shutdown_states:
+#   - 20: 0
+#   - 21: 0
+#   - 19: 0
+#   - 26: 0
+#   - 16: 0
+#   - 13: 0
 
 timeout: 5
 

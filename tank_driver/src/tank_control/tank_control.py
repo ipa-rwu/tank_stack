@@ -7,8 +7,6 @@ import RPi.GPIO as GPIO
 from motor_control import MotorGPIO
 
 
-GPIO.setmode(GPIO.BCM)
-
 _MAX_PWM = 255
 _MIN_PWM = 0
 
@@ -20,30 +18,22 @@ class TankControl:
         rospy.init_node('tank_control', log_level=rospy.DEBUG)
 
         # Pin numbers are the GPIO# value, not the literal pin number.
-        self._pin_definition = rospy.get_param("~Definition", {})
+        self._pin_definition = rospy.get_param("/pin_definition_out", {})
+        # print(self._pin_definition)
 
-        for pin, definition in self._pin_definition.items():
-            if not isinstance(pin, int):
-                del self._pin_definition[pin]
-            pin = int(pin)
-            self._pin_definition[pin] = definition
-
-        # Assign pins to motor
-            if definition.find("left"):
-                if definition.find("forward"):
-                    pin_left_forward = pin
-                if definition.find("backward"):
-                    pin_left_backward = pin
-                if definition.find("pwm"):
-                    pin_left_pwm = pin
-
-            if definition.find("right"):
-                if definition.find("forward"):
-                    pin_right_forward = pin
-                if definition.find("backward"):
-                    pin_right_backward = pin
-                if definition.find("pwm"):
-                    pin_right_pwm = pin
+        for definition, pin in self._pin_definition.items():
+            if definition == "left_motor_forward":
+                pin_left_forward = pin
+            if definition == "left_motor_backward":
+                pin_left_backward = pin
+            if definition == "right_motor_forward":
+                pin_right_forward = pin
+            if definition == "right_motor_backward":
+                pin_right_backward = pin
+            if definition == "left_motor_pwm":
+                pin_left_pwm = pin
+            if definition == "right_motor_pwm":
+                pin_right_pwm = pin
 
         self._left_motor = MotorGPIO(pin_left_forward, pin_left_backward, pin_left_pwm)
         self._right_motor = MotorGPIO(pin_right_forward, pin_right_backward, pin_right_pwm)
@@ -58,29 +48,14 @@ class TankControl:
         self._timeout = rospy.get_param('/timeout', "2")
         self._rate = rospy.get_param('/rate', "50")
         self._max_speed = rospy.get_param('/max_speed', "0.5")
-        self._wheel_base = rospy.get_param('/wheel_base', "0.091")
+        self._wheel_base = rospy.get_param('/wheel_base', "0.15")
         self._cmd_vel_topic = rospy.get_param('/cmd_vel', 'cmd_vel')
 
-        # These states will be set to pins right before the node shuts down.
-        self._shutdown_states = rospy.get_param("~shutdown_states", {})
-
-        # Set default states.
-        self._start_states = rospy.get_param("~states", {})
-
-
-
-        for pin, state in self.states.items():
-            if not isinstance(pin, int):
-                del self.states[pin]
-            pin = int(pin)
-            self._start_statesstates[pin] = state
-
-
-        for pin, state in self._shutdown_states.items():
-            if not isinstance(pin, int):
-                del self._shutdown_states[pin]
-            pin = int(pin)
-            self._shutdown_states[pin] = state
+        # self._shutdown_states  = {}
+        # self._start_states = {}
+        # for definition, pin in self._pin_definition.items():
+        #     self._start_states[pin] = 0
+        #     self._shutdown_states[pin] = 0
 
     def velocity_received_callback(self, message):
         """Handle new velocity command message."""
@@ -110,9 +85,8 @@ class TankControl:
 
         # Reset pin state.
         rospy.loginfo("Reseting pin states...")
-        for pin, state in self._shutdown_states.iteritems():
-            GPIO.output(pin, state)
-        self._pwm.start(0)
+        self._left_motor.stop_motor()
+        self._right_motor.stop_motor()
 
     def run(self):
         """The control loop of the driver."""
