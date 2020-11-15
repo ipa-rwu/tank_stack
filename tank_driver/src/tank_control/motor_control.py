@@ -22,7 +22,7 @@ class MotorGPIO:
         self._forward_pin = forward_pin
         self._backward_pin = backward_pin
 
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
 
         GPIO.setup(forward_pin, GPIO.OUT)
         GPIO.setup(backward_pin, GPIO.OUT)
