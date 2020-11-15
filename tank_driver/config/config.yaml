@@ -39,4 +39,4 @@ rate: 50
 max_speed: 0.5
 max_pwm: 255
 # The distance between two wheel(track)
-wheel_base:
+wheel_base: 0.15
