@@ -24,6 +24,7 @@ def main():
         print(pin)
         print(definition)
     # Assign pins to motor
+    # !!!!!!! wrong!!!!!!!!!
         if definition.find("left_motor_forward"):
             pin_left_forward = pin
         if definition.find("left_motor_backward"):

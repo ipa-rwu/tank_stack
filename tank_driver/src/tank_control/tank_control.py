@@ -45,9 +45,8 @@ class TankControl:
                 if definition.find("pwm"):
                     pin_right_pwm = pin
 
-        motor = MotorGPIO()
-        self._left_motor = motor(pin_left_forward, pin_left_backward, pin_left_pwm)
-        self._right_motor = motor(pin_right_forward, pin_right_backward, pin_right_pwm)
+        self._left_motor = MotorGPIO(pin_left_forward, pin_left_backward, pin_left_pwm)
+        self._right_motor = MotorGPIO(pin_right_forward, pin_right_backward, pin_right_pwm)
         self._left_speed_percent = 0
         self._right_speed_percent = 0
 
