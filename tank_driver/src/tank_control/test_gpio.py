@@ -46,9 +46,9 @@ def main():
 
     pin_left_forward = 20
     pin_left_backward = 21
-    pin_left_pwm = 19
-    pin_right_forward = 26
-    pin_right_backward = 16
+    pin_left_pwm = 16
+    pin_right_forward = 19
+    pin_right_backward = 26
     pin_right_pwm = 13
 
     print(pin_left_forward, pin_left_backward, pin_left_pwm, pin_right_forward, pin_right_backward, pin_right_pwm)
