@@ -45,7 +45,7 @@ def main():
     pin_right_forward = 19
     pin_right_backward = 26
     pin_right_pwm = 13
-    
+
     print(pin_left_forward, pin_left_backward, pin_left_pwm, pin_right_forward, pin_right_backward, pin_right_pwm)
     left_motor = MotorGPIO(pin_left_forward, pin_left_backward, pin_left_pwm)
     right_motor = MotorGPIO(pin_right_forward, pin_right_backward, pin_right_pwm)
@@ -53,8 +53,8 @@ def main():
     right_speed_percent = 0
 
     while True:
-        left_speed_percent = 10
-        right_speed_percent = 10
+        left_speed_percent = 5
+        right_speed_percent = 5
         left_motor.move(left_speed_percent)
         right_motor.move(right_speed_percent)  
 
