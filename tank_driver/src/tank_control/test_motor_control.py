@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from motor_control import MotorGPIO
+# from motor_control import MotorGPIO
 import yaml
 import os
 
@@ -21,25 +21,31 @@ def main():
         for pin in item:
             definition = item[pin]
 
-
+        print(pin)
+        print(definition)
     # Assign pins to motor
-        if definition.find("left"):
-            if definition.find("forward"):
-                pin_left_forward = pin
-            if definition.find("backward"):
-                pin_left_backward = pin
-            if definition.find("pwm"):
-                pin_left_pwm = pin
+        if definition.find("left_motor_forward"):
+            pin_left_forward = pin
+        if definition.find("left_motor_backward"):
+            pin_left_backward = pin
+        if definition.find("left_motor_pwm"):
+            pin_left_pwm = pin
 
-        if definition.find("right"):
-            if definition.find("forward"):
-                pin_right_forward = pin
+        if definition.find("right_motor_forward"):
+            pin_right_forward = pin
 
-            if definition.find("backward"):
-                pin_right_backward = pin
-            if definition.find("pwm"):
-                pin_right_pwm = pin
+        if definition.find("right_motor_backward"):
+            pin_right_backward = pin
+        if definition.find("right_motor_pwm"):
+            pin_right_pwm = pin
 
+    pin_left_forward = 20
+    pin_left_backward = 21
+    pin_left_pwm = 16
+    pin_right_forward = 19
+    pin_right_backward = 26
+    pin_right_pwm = 13
+    
     print(pin_left_forward, pin_left_backward, pin_left_pwm, pin_right_forward, pin_right_backward, pin_right_pwm)
     left_motor = MotorGPIO(pin_left_forward, pin_left_backward, pin_left_pwm)
     right_motor = MotorGPIO(pin_right_forward, pin_right_backward, pin_right_pwm)
