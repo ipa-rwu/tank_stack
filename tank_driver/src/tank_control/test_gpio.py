@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import os
+import yaml
 
 _FREQUENCY = 20
 _MAX_PWM = 255
