@@ -63,6 +63,10 @@ def main():
     GPIO.setup(pin_right_forward, GPIO.OUT)
     GPIO.setup(pin_right_backward, GPIO.OUT)
 
+    GPIO.setup(pin_left_pwm, GPIO.OUT)
+    GPIO.setup(pin_right_pwm, GPIO.OUT)
+
+
     pl = GPIO.PWM(pin_left_pwm, _FREQUENCY)
     pr = GPIO.PWM(pin_right_pwm, _FREQUENCY)
 
