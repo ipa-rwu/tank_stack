@@ -1,0 +1,4 @@
+ <launch>
+    <include file="$(find rplidar_ros)/launch/rplidar_ros.launch" />
+    <include file="$(find hector_slam_launch)/launch/tank.launch" />
+ </launch>
