@@ -44,7 +44,7 @@ timeout: 5
 
 rate: 50
 
-max_speed: 0.3
+max_speed: 0.1
 max_pwm: 255
 # The distance between two wheel(track)
 wheel_base: 1 #0.15
